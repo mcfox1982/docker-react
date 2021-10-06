@@ -8,3 +8,17 @@ before_install:
 
 script:
   - docker run -e CI=true jinji/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "jinji_react_demo"
+  env: "Jinjireactdemo-env"
+  bucket-name: "elasticbeanstalk-us-east-2-823477750787"
+  bucket-path: "jinji_react_demo"
+  on:
+    branch: master
+  access_key_id
+access_key_id: "$AWS_ACCESS_KEY"
+secret_access_key: "$AWS_SECRET_KEY"
+  
